@@ -41,9 +41,7 @@ project/
 
 ## Data
 
-Raw data can be requested at [psidonline.isr.umich.edu](https://psidonline.isr.umich.edu). The exact extract used in this project can be accessed by entering the following 
-email in the PSID Data Center under "Previous Carts":
-montserrat_marti@brown.edu (Job ID: 359956)
+Raw data can be requested at [psidonline.isr.umich.edu](https://psidonline.isr.umich.edu). The exact extract used in this project can be accessed by entering the following  email in the PSID Data Center under "Previous Carts": montserrat_marti@brown.edu (Job ID: 359956)
 
 ---
 
