@@ -1,0 +1,8 @@
+data/
+psid/
+*.xlsx
+*.csv
+*.dta
+*.pdf
+.DS_Store
+renv/library/
