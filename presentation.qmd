@@ -1,0 +1,181 @@
+---
+title: "Applied Economics Analysis"
+subtitle: "Final Project Presentation"
+author: "Montserrat Marti"
+date: today
+format:
+  beamer:
+    theme: Madrid
+    colortheme: seahorse
+    fonttheme: structurebold
+    aspectratio: 169
+    toc: false
+    slide-level: 2
+    header-includes: |
+        \usepackage{booktabs}
+        \usepackage{array}
+        \usepackage{graphicx}
+        \usepackage{caption}
+        \captionsetup{font=small}
+        \setbeamertemplate{footline}[frame number]
+        \setbeamerfont{title}{size=\large}
+        \setbeamerfont{subtitle}{size=\normalsize}
+---
+
+---
+
+## Motivation
+
+\begin{itemize}
+  \item Higher income improves mental health.
+  \vspace{0.3cm}
+  \item The relationship runs in \textbf{both directions:} Generates persistent effects on each other.
+  \vspace{0.3cm}
+  \item Mental health measured years earlier predicts well-being more strongly than current income.
+\end{itemize}
+
+## This Paper
+
+\begin{alertblock}{Core Question}
+Does a \textbf{lifetime of high earnings} translate into better psychological well-being and life satisfaction \textbf{in later life}?
+\end{alertblock}
+
+\vspace{0.4cm}
+- I use **50+ years of longitudinal data** to trace individuals from early career to old age.
+- I connect \textbf{lifetime labor income trajectories} to \textbf{psychological distress} and \textbf{life satisfaction} at age 50+.
+
+---
+
+## Data: Panel Study of Income Dynamics (PSID)
+
+- **Longest running longitudinal household survey** in the world.
+- Annual waves 1968–1996, biennial from 1997.
+- Tracks individuals and their descendants over time.
+- **85,536 individuals**.
+
+\vspace{0.3cm}
+
+**Main Variables:**
+
+| Concept | Variable | Available Since |
+|---|---|---|
+| Hourly wage (real USD 2019) | `wage_real` | 1968 |
+| Employment status | `empl_status` | 1979 |
+| Psychological distress | K6 scale (0–24) | 1997 |
+| Life satisfaction | 1–5 scale | 2007 |
+| Health status | 1–5 scale | 1994 |
+
+---
+
+## Variable Construction
+
+\textbf{Income trajectory:}
+\begin{itemize}
+  \item Historical average real wage: mean hourly wage across all employed person-years (CPI-U, base 2019).
+  \item Income quintiles: Q1 (lowest) to Q5 (highest), requires $\geq$ 3 years of observed wage.
+  \item Employment indicator: equals 1 if individual reports working in that year, 0 otherwise.
+  \item Coefficient of variation (CV): standard deviation divided by mean of employment status across all observed years (age 20--65).
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Well-being outcomes (age 50+):}
+\begin{itemize}
+  \item \textbf{K6 distress}: Kessler-6 scale (0--24); scores $\geq$ 13 indicate clinically significant distress; available from 1997
+  \item \textbf{Life satisfaction}: 1 = completely satisfied, 5 = not at all satisfied; available from 2007
+\end{itemize}
+
+---
+
+## Real Wage Lifecycle by Income Quintile
+
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth, height=0.7\textheight, keepaspectratio]{output/plot1_wage_lifecycle.png}
+\end{figure}
+
+\small \textit{Mean real hourly wage by 2-year age bins. Active employment observations only.}
+
+---
+
+## Employment Rate Over the Lifecycle by Income Quintile
+
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth, height=0.7\textheight, keepaspectratio]{output/plot2_employment_lifecycle.png}
+\end{figure}
+
+\small \textit{Share employed by 2-year age bins. PSID 1979–2021.}
+
+---
+
+## Labor Trajectory and Well-being at Age 50+
+
+\resizebox{\textwidth}{!}{
+\input{output/table1b_summary.tex}
+}
+\small \textit{CV = coefficient of variation of employment status (lower = more stable). K6 and life satisfaction measured at age 50+.}
+
+---
+
+## Identification Strategy
+
+\textbf{Two baseline specifications, each estimated for K6 and life satisfaction:}
+
+\vspace{0.2cm}
+
+\textbf{(1) Earnings trajectory:}
+$$y_{it} = \alpha + \beta \cdot \bar{w}_i + \gamma X_{it} + \lambda_t + \varepsilon_{it}$$
+
+\textbf{(2) Employment stability:}
+$$y_{it} = \alpha + \beta \cdot CV_i + \gamma X_{it} + \lambda_t + \varepsilon_{it}$$
+
+where $X_{it}$ includes age, current employment status, and health status; $\lambda_t$ are year fixed effects.
+
+\vspace{0.2cm}
+
+\begin{alertblock}{Threats to identification}
+\begin{itemize}
+  \item \textbf{Reverse causality:} poor mental health reduces earnings and employment stability
+  \item \textbf{Selection:} healthier individuals may sort into high-earning careers from the start
+\end{itemize}
+\end{alertblock}
+
+---
+
+## Preliminary Results
+
+\centering
+\scalebox{0.8}{
+\input{output/table_regression.tex}
+}
+\small \textit{Controls include age, employment status and health.}
+
+---
+
+## Conclusion
+
+\begin{itemize}
+  \item High-earning individuals experience \textbf{lower psychological distress} 
+  throughout their working lives but this gap \textbf{narrows significantly after 50.}
+  \item Those with higher lifetime earnings report \textbf{greater life satisfaction} 
+  in later life.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Next Steps}
+Establish whether these patterns reflect a \textbf{causal effect} of lifetime 
+earnings or \textbf{selection} using individual fixed effects and, if possible, 
+an IV or event-study approach around retirement.
+\end{alertblock}
+
+---
+
+## Thank You
+
+\vspace{1cm}
+
+\centering
+
+\Large Questions?
