@@ -2,7 +2,6 @@
 # PSID Individual-Level Panel Construction
 # =============================================================================
  
-# install.packages(c("readxl", "haven", "dplyr", "tidyr", "stringr"), repos = "https://cloud.r-project.org/")
 # --- 0. Packages --------------------------------------------------------------
 library(readxl)       
 library(dplyr)        
@@ -503,7 +502,7 @@ build_year <- function(yr) {
     ) %>%
     select(-ER30001, -ER30002)
  
-  # Ensure all concept columns exist (fill missing concepts with NA)
+  # Fill missing concepts with NA
   all_concepts <- c("interview_num", "seq_num", "relation", "empl_status",
                     "age", "sex", "wage", "health", "psych_problem",
                     "k6_distress", "life_satisfaction", "ethnic", "educ", "disabled")
@@ -525,7 +524,6 @@ panel_long <- panel_long %>%
  
 # --- 5. Clean missing value codes -------------------------------------------
 # PSID uses survey-specific missing codes; convert all to NA.
-# Rules by concept:
 #   relation     : 0 = inap/not in FU -> NA
 #   empl_status  : 0 = inap, 9 = NA/DK -> NA
 #   age          : 0 = inap -> NA  (ages run 1-99+)
@@ -551,10 +549,10 @@ panel_clean <- panel_long %>%
     # Age
     age = if_else(age %in% c(0, 999), NA_real_, age), 
     
-    # Sex (head-level)
+    # Sex 
     sex            = if_else(sex %in% c(0, 9), NA_real_, sex),
  
-    # Sex individual (time-invariant)
+    # Sex individual 
     sex_individual = if_else(sex_individual %in% c(0, 9), NA_real_, sex_individual),
  
     # Wage: 9999, 9998, 99.99 -> NA

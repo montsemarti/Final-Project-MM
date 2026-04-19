@@ -117,7 +117,7 @@ stargazer(
 # TABLE 1B — CV employment, K6 and life satisfaction by quintile
 # =============================================================================
 
-# CV de empleo por persona (age 20-65)
+# CV employment (age 20-65)
 cv_employment <- panel %>%
   filter(!is.na(wage_quintile), !is.na(employed), age >= 20, age <= 65) %>%
   group_by(person_id, wage_quintile) %>%
@@ -134,7 +134,7 @@ cv_employment <- panel %>%
     .groups = "drop"
   )
 
-# K6 y life satisfaction a 50+
+# K6 and life satisfaction: 50+
 outcomes_50 <- panel %>%
   filter(!is.na(wage_quintile), age >= 50) %>%
   group_by(wage_quintile) %>%
@@ -144,7 +144,7 @@ outcomes_50 <- panel %>%
     .groups = "drop"
   )
 
-# Combinar
+# Combine
 table_b <- cv_employment %>%
   left_join(outcomes_50, by = "wage_quintile") %>%
   arrange(wage_quintile) %>%
