@@ -85,8 +85,11 @@ project/
 
 ## 3. Create data folder
 
+```
 project/
 └── data
+
+```
 
 ### 4. Run the master script
 Change directory. Then run:
