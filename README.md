@@ -46,12 +46,13 @@ project/
 
 ## Data
 
-Raw data can be requested at [psidonline.isr.umich.edu](https://psidonline.isr.umich.edu) (you may be requested to create an account). The exact extract used in this project can be accessed by entering the following  email in the PSID Data Center under "Previous Carts": montserrat_marti@brown.edu (Job ID: 359956)
+Raw data can be requested at [psidonline.isr.umich.edu](https://psidonline.isr.umich.edu) (you may be requested to create an account). The exact extract used in this project can be accessed by entering the following  email in the PSID Data Center under "Previous Carts": montserrat_marti@brown.edu (Job ID: 359956). Make sure to select Microsoft Spreadsheet as the download format.
 
 ---
 
 
 **Input files** 
+Rename files as follow:
 
 | File | Description |
 |---|---|
@@ -88,6 +89,7 @@ project/
 └── data
 
 ### 4. Run the master script
+Change directory. Then run:
 
 ```r
 source("code/0_main.R")

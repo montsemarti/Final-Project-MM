@@ -1,8 +1,8 @@
 ---
 title: "Applied Economics Analysis"
-subtitle: "Final Project Presentation"
+subtitle: "Lifetime Earnings and Well-being in Later Life"
 author: "Montserrat Marti"
-date: today
+date: "2026-04-20"
 format:
   beamer:
     theme: Madrid
@@ -29,7 +29,7 @@ format:
 \begin{itemize}
   \item Higher income improves mental health.
   \vspace{0.3cm}
-  \item The relationship runs in \textbf{both directions:} Generates persistent effects on each other.
+  \item The relationship runs in \textbf{both directions.}
   \vspace{0.3cm}
   \item Mental health measured years earlier predicts well-being more strongly than current income.
 \end{itemize}
@@ -40,6 +40,8 @@ format:
 Does a \textbf{lifetime of high earnings} translate into better psychological well-being and life satisfaction \textbf{in later life}?
 \end{alertblock}
 
+\pause
+
 \vspace{0.4cm}
 - I use **50+ years of longitudinal data** to trace individuals from early career to old age.
 - I connect \textbf{lifetime labor income trajectories} to \textbf{psychological distress} and \textbf{life satisfaction} at age 50+.
@@ -49,11 +51,12 @@ Does a \textbf{lifetime of high earnings} translate into better psychological we
 ## Data: Panel Study of Income Dynamics (PSID)
 
 - **Longest running longitudinal household survey** in the world.
-- Annual waves 1968–1996, biennial from 1997.
 - Tracks individuals and their descendants over time.
 - **85,536 individuals**.
 
 \vspace{0.3cm}
+
+\pause
 
 **Main Variables:**
 
@@ -63,7 +66,6 @@ Does a \textbf{lifetime of high earnings} translate into better psychological we
 | Employment status | `empl_status` | 1979 |
 | Psychological distress | K6 scale (0–24) | 1997 |
 | Life satisfaction | 1–5 scale | 2007 |
-| Health status | 1–5 scale | 1994 |
 
 ---
 
@@ -78,6 +80,8 @@ Does a \textbf{lifetime of high earnings} translate into better psychological we
 \end{itemize}
 
 \vspace{0.3cm}
+
+\pause
 
 \textbf{Well-being outcomes (age 50+):}
 \begin{itemize}
@@ -134,6 +138,8 @@ where $X_{it}$ includes age, current employment status, and health status; $\lam
 
 \vspace{0.2cm}
 
+\pause
+
 \begin{alertblock}{Threats to identification}
 \begin{itemize}
   \item \textbf{Reverse causality:} poor mental health reduces earnings and employment stability
@@ -156,18 +162,19 @@ where $X_{it}$ includes age, current employment status, and health status; $\lam
 ## Conclusion
 
 \begin{itemize}
-  \item High-earning individuals experience \textbf{lower psychological distress} 
-  throughout their working lives but this gap \textbf{narrows significantly after 50.}
-  \item Those with higher lifetime earnings report \textbf{greater life satisfaction} 
-  in later life.
+  \item Individuals in the \textbf{highest income quintile} earn significantly more than those in the lowest, and maintain more stable employment throughout their careers.
+  \vspace{0.2cm}
+  \item Higher lifetime earnings and more stable employment are associated with \textbf{lower psychological distress} and \textbf{greater life satisfaction} at age 50+.
+  \vspace{0.2cm}
+  \item OLS results confirm that historical wage reduces K6 distress and Life satisfaction perception and higher employment volatility increases distress and satisfaction.
 \end{itemize}
 
 \vspace{0.3cm}
 
-\begin{alertblock}{Next Steps}
-Establish whether these patterns reflect a \textbf{causal effect} of lifetime 
-earnings or \textbf{selection} using individual fixed effects and, if possible, 
-an IV or event-study approach around retirement.
+\pause
+
+\begin{alertblock}{Open Question}
+Do these patterns reflect a \textbf{causal effect} of lifetime earnings? Addressing this requires an IV or event-study approach around retirement.
 \end{alertblock}
 
 ---
